@@ -1,0 +1,9 @@
+[package]
+name = "uqff_mistralrs_test"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "1.0.98"
+mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git" }
+tokio = { version = "1.44.1", features = ["macros", "rt-multi-thread"] }
