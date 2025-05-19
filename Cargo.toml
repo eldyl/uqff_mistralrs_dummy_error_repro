@@ -5,5 +5,20 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.98"
-mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git" }
+# mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git" }
 tokio = { version = "1.44.1", features = ["macros", "rt-multi-thread"] }
+
+[target.x86_64-unknown-linux-gnu.dependencies]
+mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git", features = [
+  "cuda",
+] }
+
+[target.aarch64-apple-darwin.dependencies]
+mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git", features = [
+  "metal",
+] }
+
+[target.'cfg(windows)'.dependencies]
+mistralrs = { git = "https://github.com/EricLBuehler/mistral.rs.git", features = [
+  "cuda",
+] }
